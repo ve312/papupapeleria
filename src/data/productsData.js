@@ -19,6 +19,7 @@ export const slides = [
   }
 ];
 
+
 export const categories = [
   { name: "Cuadernos", icon: "📓", color: "bg-blue-100" },
   { name: "Lápices", icon: "✏️", color: "bg-yellow-100" },
@@ -32,49 +33,57 @@ export const categories = [
 
 export const products = [
   { 
-    name: "Cuaderno 100 Hojas", 
+    name: "Cuaderno 100 Hojas",
+    category: "Cuadernos",
     price: "$10.000", 
     rating: 5, 
     image: "https://http2.mlstatic.com/D_NQ_NP_962491-MLU73982831012_012024-O.webp" 
   },
   { 
-    name: "Set Colores x24", 
+    name: "Set Colores x24",
+    category: "Colores",
     price: "$35.960", 
     rating: 5, 
     image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&q=80" 
   },
   { 
-    name: "Mochila Escolar", 
+    name: "Mochila Escolar",
+    category: "Mochilas",
     price: "$100.000", 
     rating: 4, 
     image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80" 
   },
   { 
-    name: "Lapicero Gel", 
+    name: "Lapicero Gel",
+    category: "Lápices",
     price: "$4.800", 
     rating: 5, 
     image: "https://www.papeleriaelmayorista.com/wp-content/uploads/lapicero-kilometrico-gel-papeleria-el-mayorista.jpg" 
   },
   { 
-    name: "Tijeras Escolares", 
+    name: "Tijeras Escolares",
+    category: "Tijeras",
     price: "$14.000", 
     rating: 4, 
     image: "https://http2.mlstatic.com/D_NQ_NP_735733-MLU78104369515_082024-O.webp" 
   },
   { 
-    name: "Pegamento Líquido", 
+    name: "Pegamento Líquido",
+    category: "Pegamento",
     price: "$7.200", 
     rating: 5, 
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRNfTcYXw7eAa-3vQ20B0u3rNxbbmmtSQQEw&s" 
   },
   { 
-    name: "Borrador Blanco", 
+    name: "Borrador Blanco",
+    category: "Lápices", // también podría ir en “Accesorios” si luego la creas
     price: "$2.000", 
     rating: 4, 
     image: "https://cdnx.jumpseller.com/la-cali/image/11154499/716.png?1642949660" 
   },
   { 
-    name: "Regla 30cm", 
+    name: "Regla 30cm",
+    category: "Reglas",
     price: "$4.000", 
     rating: 5, 
     image: "https://ventascoraza.com.co/cdn/shop/files/REGLA30CMMADERASENSILLA.webp?v=1733866604" 
