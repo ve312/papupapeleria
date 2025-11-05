@@ -5,14 +5,20 @@ import Features from './components/Features';
 import Categories from './components/Categories';
 import Footer from './components/Footer';
 import ProductsPage from './pages/ProductsPage';
+import OffersPage from './pages/OffersPage';
+import ContactPage from './pages/ContactPage';
+import CartPage from './pages/CartPage';
+import { CartProvider } from './context/CartContext';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
   const renderPage = () => {
-    switch(currentPage) {
-      case 'products':
-        return <ProductsPage />;
+    switch (currentPage) {
+      case 'products': return <ProductsPage />;
+      case 'offers': return <OffersPage />;
+      case 'contact': return <ContactPage />;
+      case 'cart': return <CartPage />;
       case 'home':
       default:
         return (
@@ -28,11 +34,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      {renderPage()}
-      <Footer />
-    </div>
+    <CartProvider>
+      <div className="min-h-screen bg-gray-50">
+        <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        {renderPage()}
+        <Footer />
+      </div>
+    </CartProvider>
   );
 }
-

@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { ShoppingCart, Search, Menu, X } from 'lucide-react';
+import { useCart } from '../context/CartContext';
+import CartDrawer from './CartDrawer';
 
 export default function Header({ currentPage, setCurrentPage }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
+  const { count } = useCart();
 
   const navItems = [
     { id: 'home', label: 'Inicio' },
@@ -22,34 +26,23 @@ export default function Header({ currentPage, setCurrentPage }) {
       <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)} 
-              className="lg:hidden"
-              aria-label="Toggle menu"
-            >
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden" aria-label="Toggle menu">
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
-            <button 
-              onClick={() => handleNavClick('home')}
-              className="text-3xl font-bold tracking-tight hover:text-yellow-200 transition-colors"
-            >
+            <button onClick={() => handleNavClick('home')} className="text-3xl font-bold tracking-tight hover:text-yellow-200 transition-colors">
               Papupapeleria
             </button>
           </div>
           
           <nav className="hidden lg:flex space-x-6 text-sm font-medium">
-            {navItems.map((item) => (
+            {navItems.map(item => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`hover:text-yellow-200 transition-colors relative ${
-                  currentPage === item.id ? 'text-yellow-200' : ''
-                }`}
+                className={`hover:text-yellow-200 transition-colors relative ${currentPage === item.id ? 'text-yellow-200' : ''}`}
               >
                 {item.label}
-                {currentPage === item.id && (
-                  <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-yellow-200 rounded-full"></span>
-                )}
+                {currentPage === item.id && <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-yellow-200 rounded-full"></span>}
               </button>
             ))}
           </nav>
@@ -63,9 +56,13 @@ export default function Header({ currentPage, setCurrentPage }) {
               />
               <Search className="w-5 h-5" />
             </div>
-            <button className="relative hover:scale-110 transition-transform">
+            <button onClick={() => setOpenCart(true)} className="relative hover:scale-110 transition-transform" aria-label="Abrir carrito">
               <ShoppingCart className="w-6 h-6" />
-              <span className="absolute -top-2 -right-2 bg-yellow-400 text-red-600 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">3</span>
+              {count > 0 && (
+                <span className="absolute -top-2 -right-2 bg-yellow-400 text-red-600 text-xs font-bold rounded-full min-w-5 h-5 px-1 flex items-center justify-center">
+                  {count}
+                </span>
+              )}
             </button>
           </div>
         </div>
@@ -73,15 +70,13 @@ export default function Header({ currentPage, setCurrentPage }) {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-red-600 px-4 py-3 animate-fade-in">
+        <div className="lg:hidden bg-red-600 px-4 py-3">
           <nav className="flex flex-col space-y-2">
-            {navItems.map((item) => (
+            {navItems.map(item => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`text-left py-2 hover:text-yellow-200 transition-colors ${
-                  currentPage === item.id ? 'text-yellow-200 font-bold' : ''
-                }`}
+                className={`text-left py-2 hover:text-yellow-200 transition-colors ${currentPage === item.id ? 'text-yellow-200 font-bold' : ''}`}
               >
                 {item.label}
               </button>
@@ -89,6 +84,15 @@ export default function Header({ currentPage, setCurrentPage }) {
           </nav>
         </div>
       )}
+
+      <CartDrawer
+        open={openCart}
+        onClose={() => setOpenCart(false)}
+        goToCart={() => {
+          setOpenCart(false);
+          setCurrentPage('cart');
+        }}
+      />
     </header>
   );
 }
