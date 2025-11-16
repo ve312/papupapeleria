@@ -8,6 +8,7 @@ import ProductsPage from './pages/ProductsPage';
 import OffersPage from './pages/OffersPage';
 import ContactPage from './pages/ContactPage';
 import CartPage from './pages/CartPage';
+import FAQPage from './pages/FAQPage';
 import { CartProvider } from './context/CartContext';
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
       case 'offers': return <OffersPage />;
       case 'contact': return <ContactPage />;
       case 'cart': return <CartPage />;
+      case 'faq': return <FAQPage />;
       case 'home':
       default:
         return (

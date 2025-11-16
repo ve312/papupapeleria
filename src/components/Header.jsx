@@ -12,7 +12,8 @@ export default function Header({ currentPage, setCurrentPage }) {
     { id: 'home', label: 'Inicio' },
     { id: 'products', label: 'Productos' },
     { id: 'offers', label: 'Ofertas' },
-    { id: 'contact', label: 'Contacto' }
+    { id: 'contact', label: 'Contacto' },
+    { id: 'faq', label: 'Preguntas Frecuentes' }
   ];
 
   const handleNavClick = (pageId) => {
@@ -33,7 +34,7 @@ export default function Header({ currentPage, setCurrentPage }) {
               Papupapeleria
             </button>
           </div>
-          
+
           <nav className="hidden lg:flex space-x-6 text-sm font-medium">
             {navItems.map(item => (
               <button

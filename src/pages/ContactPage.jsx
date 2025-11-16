@@ -12,7 +12,7 @@ export default function ContactPage() {
   const validate = () => {
     const e = {};
     if (!form.name.trim()) e.name = 'Tu nombre es obligatorio';
-    if (!/^\S+@\S+\.\S+$/.test(form.email)) e.email = 'Correo inválido';
+    if (!/^[\S]+@[\S]+\.[\S]+$/.test(form.email)) e.email = 'Correo inválido';
     if (form.phone && !/^[0-9+\-\s()]{7,}$/.test(form.phone)) e.phone = 'Número inválido';
     if (!form.message.trim() || form.message.trim().length < 10) e.message = 'Cuéntanos más (mín. 10 caracteres)';
     setErrors(e);
@@ -90,8 +90,8 @@ export default function ContactPage() {
         {/* Bloque principal: Form + Info + Mapa */}
         <section className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Formulario */}
-          <div className="lg:col-span-3">
-            <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="lg:col-span-3 flex">
+            <div className="bg-white rounded-2xl shadow-lg p-6 w-full flex flex-col">
               <h2 className="text-2xl font-bold text-gray-800 mb-1">Envíanos un mensaje</h2>
               <p className="text-gray-600 mb-6">Completa el formulario y te responderemos a la brevedad.</p>
 
@@ -102,7 +102,7 @@ export default function ContactPage() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
                 <div className="md:col-span-1">
                   <label className="block text-sm font-semibold text-gray-700 mb-1">Nombre</label>
                   <input
@@ -153,13 +153,13 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="md:col-span-2">
+                <div className="md:col-span-2 flex flex-col flex-1">
                   <label className="block text-sm font-semibold text-gray-700 mb-1">Mensaje</label>
                   <textarea
-                    rows="5"
+                    rows="8"
                     value={form.message}
                     onChange={(e) => handleChange('message', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-xl border-2 ${errors.message ? 'border-red-300' : 'border-gray-200'} focus:border-orange-500 outline-none resize-y`}
+                    className={`w-full px-4 py-3 rounded-xl border-2 ${errors.message ? 'border-red-300' : 'border-gray-200'} focus:border-orange-500 outline-none resize-none flex-1`}
                     placeholder="¿En qué podemos ayudarte?"
                   />
                   {errors.message && <p className="text-sm text-red-600 mt-1 flex items-center gap-1"><AlertCircle className="w-4 h-4" /> {errors.message}</p>}
@@ -184,26 +184,26 @@ export default function ContactPage() {
           </div>
 
           {/* Información + mapa */}
-          <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+          <div className="lg:col-span-2 flex flex-col gap-6">
+            <div className="bg-white rounded-2xl shadow-lg p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Nuestra Tienda</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-gray-700">
-                  <MapPin className="w-5 h-5 text-orange-500 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="font-semibold">Dirección</p>
                     <p>Neiva, Huila</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700">
-                  <Phone className="w-5 h-5 text-orange-500 mt-0.5" />
+                  <Phone className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="font-semibold">Teléfono</p>
                     <a className="hover:underline" href="tel:+573001234567">+57 300 123 4567</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700">
-                  <Mail className="w-5 h-5 text-orange-500 mt-0.5" />
+                  <Mail className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="font-semibold">Correo</p>
                     <a className="hover:underline" href="mailto:Papupapeleria@gmail.com">Papupapeleria@gmail.com</a>
@@ -220,39 +220,19 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex-1">
               <iframe
                 title="Ubicación Papupapeleria"
                 src="https://www.google.com/maps?q=Neiva%2C%20Huila&output=embed"
                 width="100%"
-                height="300"
+                height="100%"
+                className="w-full h-full min-h-[350px]"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="mt-10">
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">Preguntas Frecuentes</h3>
-          <div className="bg-white rounded-2xl shadow-lg divide-y">
-            {[
-              { q: '¿Cuánto tarda el envío?', a: 'Neiva: 24h. Resto del país: 2-5 días hábiles.' },
-              { q: '¿Tienen cambios o devoluciones?', a: 'Sí, dentro de 30 días presentando factura y producto en buen estado.' },
-              { q: '¿Qué medios de pago aceptan?', a: 'Tarjetas débito/crédito, transferencias y pago contraentrega en zonas habilitadas.' },
-              { q: '¿Cómo cotizo al por mayor?', a: 'Escríbenos en “Mayoristas” y te responderemos con lista de precios actualizada.' },
-            ].map((item, idx) => (
-              <details key={idx} className="group open:bg-gray-50 p-5">
-                <summary className="flex cursor-pointer items-center justify-between text-gray-800 font-semibold">
-                  {item.q}
-                  <span className="ml-4 text-orange-500 group-open:rotate-180 transition-transform">⌄</span>
-                </summary>
-                <p className="mt-2 text-gray-700">{item.a}</p>
-              </details>
-            ))}
           </div>
         </section>
       </div>
