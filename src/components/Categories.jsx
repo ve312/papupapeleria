@@ -16,264 +16,324 @@ const categories = [
 const products = [
   // Útiles Escolares
   { 
+    id: 1,
     name: "Kit Escolar Completo",
     category: "Útiles Escolares",
-    price: "$45.000",
-    oldPrice: "$60.000",
+    price: 45000,
+    oldPrice: 60000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80",
-    stock: 12
+    image: "https://amelipapeleria.uy/wp-content/uploads/2021/01/kit-4-ameli.jpeg",
+    stock: 12,
+    description: "Kit completo para el regreso a clases"
   },
   { 
+    id: 2,
     name: "Lapiceros x12 Colores",
     category: "Útiles Escolares",
-    price: "$18.500",
+    price: 18500,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&q=80",
-    stock: 25
+    image: "https://www.papeleriamegapel.com/wp-content/uploads/2022/05/Lapicero-Trilux-032-x-12-Colores-Surtidos-Faber-Castell.jpg",
+    stock: 25,
+    description: "Set de 12 lapiceros de colores vibrantes"
   },
   { 
+    id: 3,
     name: "Set de Lápices HB",
     category: "Útiles Escolares",
-    price: "$8.900",
+    price: 8900,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=400&q=80",
-    stock: 30
+    image: "https://tse4.mm.bing.net/th/id/OIP.JjE-1bP4U0SXcHb7wDeN3AHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 30,
+    description: "Lápices de grafito HB ideales para escribir y dibujar"
   },
   { 
+    id: 4,
     name: "Borrador y Sacapuntas",
     category: "Útiles Escolares",
-    price: "$3.500",
+    price: 3500,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&q=80",
-    stock: 45
+    image: "https://tse3.mm.bing.net/th/id/OIP.4acZz7MLgxuc9S7l-raydAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 45,
+    description: "Combo perfecto para tus útiles escolares"
   },
   
   // Cuadernos
   { 
+    id: 5,
     name: "Cuaderno 100 Hojas",
     category: "Cuadernos",
-    price: "$10.000",
-    oldPrice: "$15.000",
+    price: 10000,
+    oldPrice: 15000,
     rating: 5, 
     image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&q=80",
-    stock: 15
+    stock: 15,
+    description: "Cuaderno rayado de 100 hojas, pasta dura"
   },
   { 
+    id: 6,
     name: "Cuaderno Universitario",
     category: "Cuadernos",
-    price: "$15.000",
-    oldPrice: "$20.000",
+    price: 15000,
+    oldPrice: 20000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&q=80",
-    stock: 10
+    image: "https://tse2.mm.bing.net/th/id/OIP.aevo3hsbAu3hrr53CdmUlQHaFL?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 10,
+    description: "Cuaderno universitario con espiral, 200 hojas"
   },
   { 
+    id: 7,
     name: "Block de Notas A4",
     category: "Cuadernos",
-    price: "$12.500",
+    price: 12500,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&q=80",
-    stock: 20
+    image: "https://tse2.mm.bing.net/th/id/OIP.WMr6fvMXSPUkdOau86puZAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 20,
+    description: "Block de notas tamaño A4, 50 hojas"
   },
   { 
+    id: 8,
     name: "Agenda 2025",
     category: "Cuadernos",
-    price: "$28.000",
+    price: 28000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&q=80",
-    stock: 8
+    image: "https://th.bing.com/th/id/OIP.AgR9lEb782H6mDnHPqgpLwHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 8,
+    description: "Agenda profesional para el año 2025"
   },
 
   // Arte y Manualidades
   { 
+    id: 9,
     name: "Set Colores x24",
     category: "Arte y Manualidades",
-    price: "$35.960",
-    oldPrice: "$45.000",
+    price: 35960,
+    oldPrice: 45000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&q=80",
-    stock: 8
+    image: "https://tse4.mm.bing.net/th/id/OIP.YtUEz9LZawodlvksBntl1QHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 8,
+    description: "Colores profesionales, 24 tonalidades vibrantes"
   },
   { 
+    id: 10,
     name: "Marcadores x12",
     category: "Arte y Manualidades",
-    price: "$25.000",
+    price: 25000,
     rating: 5, 
     image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400&q=80",
-    stock: 18
+    stock: 18,
+    description: "Marcadores permanentes de colores intensos"
   },
   { 
+    id: 11,
     name: "Témperas x6 Colores",
     category: "Arte y Manualidades",
-    price: "$22.000",
+    price: 22000,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1556910585-6e138566da5f?w=400&q=80",
-    stock: 15
+    image: "https://tse3.mm.bing.net/th/id/OIP.SRHDC1YsfF6FGz2VGTSMBAHaHI?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 15,
+    description: "Set de témperas para proyectos artísticos"
   },
   { 
+    id: 12,
     name: "Kit de Pinceles",
     category: "Arte y Manualidades",
-    price: "$16.500",
+    price: 16500,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1572372230681-7f00a9241ea9?w=400&q=80",
-    stock: 12
+    image: "https://tse1.mm.bing.net/th/id/OIP.G0Cvp-DxLRdlDHjERy14DwHaHT?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 12,
+    description: "Pinceles de diferentes tamaños para pintura"
   },
 
   // Mochilas y Bolsos
   { 
+    id: 13,
     name: "Mochila Escolar Grande",
     category: "Mochilas y Bolsos",
-    price: "$100.000",
-    oldPrice: "$130.000",
+    price: 100000,
+    oldPrice: 130000,
     rating: 4, 
     image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80",
-    stock: 5
+    stock: 5,
+    description: "Mochila ergonómica con múltiples compartimentos"
   },
   { 
+    id: 14,
     name: "Lonchera Térmica",
     category: "Mochilas y Bolsos",
-    price: "$35.000",
+    price: 35000,
     rating: 5, 
     image: "https://images.unsplash.com/photo-1585916420730-d7f95e942d43?w=400&q=80",
-    stock: 14
+    stock: 14,
+    description: "Lonchera térmica que mantiene tus alimentos frescos"
   },
   { 
+    id: 15,
     name: "Morral Universitario",
     category: "Mochilas y Bolsos",
-    price: "$85.000",
+    price: 85000,
     rating: 5, 
     image: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=400&q=80",
-    stock: 7
+    stock: 7,
+    description: "Morral moderno con compartimento para laptop"
   },
   { 
+    id: 16,
     name: "Cartuchera Triple",
     category: "Mochilas y Bolsos",
-    price: "$18.000",
+    price: 18000,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1588617507091-9dea7eb6dc95?w=400&q=80",
-    stock: 22
+    image: "https://tse2.mm.bing.net/th/id/OIP.lgAjHK89eafCp3sKManIUAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 22,
+    description: "Cartuchera con tres compartimentos"
   },
 
   // Papelería de Oficina
   { 
+    id: 17,
     name: "Carpeta Archivadora",
     category: "Papelería de Oficina",
-    price: "$12.000",
+    price: 12000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=80",
-    stock: 18
+    image: "https://tse2.mm.bing.net/th/id/OIP.xvFHIrt6zc94gReI-oUjIwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 18,
+    description: "Carpeta resistente para organizar documentos"
   },
   { 
+    id: 18,
     name: "Grapadora Metálica",
     category: "Papelería de Oficina",
-    price: "$15.500",
+    price: 15500,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80",
-    stock: 10
+    image: "https://tse1.mm.bing.net/th/id/OIP.ZJznDQoRckCnO99P0DxRwgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 10,
+    description: "Grapadora de alta resistencia"
   },
   { 
+    id: 19,
     name: "Perforadora 2 Huecos",
     category: "Papelería de Oficina",
-    price: "$18.000",
+    price: 18000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&q=80",
-    stock: 12
+    image: "https://th.bing.com/th?id=OIF.BnU3vv%2b9yJLyJ0Pv7N1aPw&rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 12,
+    description: "Perforadora metálica profesional"
   },
   { 
+    id: 20,
     name: "Clips y Chinches Set",
     category: "Papelería de Oficina",
-    price: "$5.500",
+    price: 5500,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&q=80",
-    stock: 35
+    image: "https://tse1.mm.bing.net/th/id/OIP.MDXPywlJGq8zUlKEe1CUaAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 35,
+    description: "Set completo de clips y chinches de colores"
   },
 
   // Organización
   { 
+    id: 21,
     name: "Organizador de Escritorio",
     category: "Organización",
-    price: "$32.000",
+    price: 32000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&q=80",
-    stock: 9
+    image: "https://m.media-amazon.com/images/I/813coJGdHaL._AC_.jpg",
+    stock: 9,
+    description: "Organizador con múltiples compartimentos"
   },
   { 
+    id: 22,
     name: "Separadores de Colores",
     category: "Organización",
-    price: "$8.000",
+    price: 8000,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1617333003364-f93e6ab569ea?w=400&q=80",
-    stock: 28
+    image: "https://m.media-amazon.com/images/I/719L+cmT8RL._AC_.jpg",
+    stock: 28,
+    description: "Separadores plásticos de 5 colores"
   },
   { 
+    id: 23,
     name: "Archivador Plástico",
     category: "Organización",
-    price: "$14.500",
+    price: 14500,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=400&q=80",
-    stock: 16
+    image: "https://th.bing.com/th/id/R.7ff469198f084610990574d2d53618e2?rik=ROrHJ6EJAb%2fNMQ&riu=http%3a%2f%2fextranet.plasticospardo.com%2fimagenes_prod%2ffamilia2450_familia.jpg&ehk=s3klNmW1AZrgbXGvcrfdMOHjiYQ3ISfJa60C5ZUN5pc%3d&risl=&pid=ImgRaw&r=0",
+    stock: 16,
+    description: "Archivador resistente con tapa"
   },
 
   // Accesorios
   { 
+    id: 24,
     name: "Tijeras Escolares",
     category: "Accesorios",
-    price: "$14.000",
+    price: 14000,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1616401776142-2cc2e2c6ef63?w=400&q=80",
-    stock: 12
+    image: "https://distribuidoraeleden.com/wp-content/uploads/LIB0184.jpg",
+    stock: 12,
+    description: "Tijeras con punta redondeada, ideales para niños"
   },
   { 
+    id: 25,
     name: "Pegamento Líquido",
     category: "Accesorios",
-    price: "$7.200",
+    price: 7200,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1615751072497-5f5169febe17?w=400&q=80",
-    stock: 20
+    image: "https://tse3.mm.bing.net/th/id/OIP.IzQ787LV16FDXJHOsVvA9gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 20,
+    description: "Pegamento blanco de secado rápido"
   },
   { 
+    id: 26,
     name: "Regla 30cm",
     category: "Accesorios",
-    price: "$4.000",
+    price: 4000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1561414927-6d86591d0c4f?w=400&q=80",
-    stock: 25
+    image: "https://www.officedepot.com.mx/medias/43946.gif-1200ftw?context=bWFzdGVyfHJvb3R8ODI0NzJ8aW1hZ2UvanBlZ3xhR0ZrTDJoaFlTODVORGMyTlRReE9EQTROamN3TG1wd1p3fGNjMzZkYmY0MDYzZjNjZWE3NDg1ZGMyNTBlMmUwOTk4ODcyZTczZGZlZDJlMTU0MTFlNDdjZWM4OWEyYzdhNmE",
+    stock: 25,
+    description: "Regla transparente con medidas precisas"
   },
   { 
+    id: 27,
     name: "Cinta Adhesiva x2",
     category: "Accesorios",
-    price: "$6.500",
+    price: 6500,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?w=400&q=80",
-    stock: 30
+    image: "https://tse1.mm.bing.net/th/id/OIP.VzoJQLJiQaqx72dDGQQvugHaIf?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 30,
+    description: "Pack de 2 cintas adhesivas transparentes"
   },
 
   // Tecnología
   { 
+    id: 28,
     name: "Calculadora Científica",
     category: "Tecnología",
-    price: "$48.000",
+    price: 48000,
     rating: 5, 
     image: "https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=400&q=80",
-    stock: 6
+    stock: 6,
+    description: "Calculadora científica con 240 funciones"
   },
   { 
+    id: 29,
     name: "USB 32GB",
     category: "Tecnología",
-    price: "$22.000",
-    oldPrice: "$30.000",
+    price: 22000,
+    oldPrice: 30000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1624823183493-ed5832f48f18?w=400&q=80",
-    stock: 15
+    image: "https://tse2.mm.bing.net/th/id/OIP.nEOGwpmQpN92bo7-WFFiIgHaFT?rs=1&pid=ImgDetMain&o=7&rm=3",
+    stock: 15,
+    description: "Memoria USB de alta velocidad 3.0"
   },
   { 
+    id: 30,
     name: "Mouse Inalámbrico",
     category: "Tecnología",
-    price: "$35.000",
+    price: 35000,
     rating: 4, 
     image: "https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&q=80",
-    stock: 8
+    stock: 8,
+    description: "Mouse ergonómico inalámbrico 2.4GHz"
   }
 ];
 
