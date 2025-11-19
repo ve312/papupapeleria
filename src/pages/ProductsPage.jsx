@@ -602,18 +602,24 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Header Hero */}
+      {/* Header Hero Mejorado */}
       <div className="relative overflow-hidden bg-gradient-to-r from-orange-500 via-red-500 to-pink-500">
+        {/* Elementos decorativos de fondo */}
         <div className="absolute inset-0 overflow-hidden">
+          {/* Círculos decorativos animados */}
           <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-32 -right-32 w-[600px] h-[600px] bg-yellow-400/10 rounded-full blur-3xl"></div>
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-pink-400/10 rounded-full blur-3xl animate-pulse"
             style={{ animationDelay: "1s" }}
           ></div>
+
+          {/* Patrón de puntos */}
           <div
             className="absolute inset-0 opacity-10"
             style={{
-              backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+              backgroundImage:
+                "radial-gradient(circle, white 1px, transparent 1px)",
               backgroundSize: "30px 30px",
             }}
           ></div>
@@ -621,15 +627,20 @@ export default function ProductsPage() {
 
         <div className="relative max-w-7xl mx-auto px-4 py-16">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            {/* Contenido principal */}
             <div className="flex-1 text-white space-y-6">
+              {/* Badge superior */}
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/30">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-300"></span>
                 </span>
-                <span className="text-sm font-semibold">Catálogo Actualizado 2025</span>
+                <span className="text-sm font-semibold">
+                  Catálogo Actualizado 2025
+                </span>
               </div>
 
+              {/* Título principal */}
               <div>
                 <h1 className="text-6xl md:text-7xl font-extrabold mb-4 leading-tight">
                   Nuestros
@@ -638,28 +649,22 @@ export default function ProductsPage() {
                   </span>
                 </h1>
                 <p className="text-xl md:text-2xl text-white/90 max-w-2xl">
-                  Encuentra todo lo que necesitas con precios en tu moneda favorita
+                  Encuentra todo lo que necesitas para tu día a día con la mejor
+                  calidad y los mejores precios
                 </p>
               </div>
 
+              {/* Estadísticas */}
               <div className="flex flex-wrap gap-6 pt-4">
                 <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/20">
                   <div className="bg-white/20 p-2 rounded-lg">
                     <ShoppingCart className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold">{allProducts.length}+</div>
+                    <div className="text-2xl font-bold">
+                      {allProducts.length}+
+                    </div>
                     <div className="text-xs text-white/80">Productos</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/20">
-                  <div className="bg-white/20 p-2 rounded-lg">
-                    <DollarSign className="w-5 h-5 text-yellow-300" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold">{currencies.length}</div>
-                    <div className="text-xs text-white/80">Monedas</div>
                   </div>
                 </div>
 
@@ -672,16 +677,108 @@ export default function ProductsPage() {
                     <div className="text-xs text-white/80">Calificación</div>
                   </div>
                 </div>
+
+                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl border border-white/20">
+                  <div className="bg-white/20 p-2 rounded-lg">
+                    <Heart className="w-5 h-5 text-red-300 fill-red-300" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold">1.2k</div>
+                    <div className="text-xs text-white/80">Favoritos</div>
+                  </div>
+                </div>
               </div>
+
+              {/* Botones de acción */}
+              <div className="flex flex-wrap gap-4 pt-2">
+                <button className="group bg-white text-orange-600 px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-white/50 hover:scale-105 transition-all flex items-center gap-2">
+                  <Search className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                  Explorar Todo
+                </button>
+                <button className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
+                  Ver Ofertas
+                </button>
+              </div>
+            </div>
+
+            {/* Imagen decorativa lateral */}
+            <div className="hidden lg:block relative">
+              <div className="relative w-80 h-80">
+                {/* Círculo de fondo animado */}
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-pink-400/30 rounded-full blur-2xl animate-pulse"></div>
+
+                {/* Iconos flotantes */}
+                <div
+                  className="absolute top-0 left-0 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-2xl animate-bounce"
+                  style={{ animationDelay: "0s", animationDuration: "3s" }}
+                >
+                  <ShoppingCart className="w-8 h-8 text-orange-500" />
+                </div>
+
+                <div
+                  className="absolute top-20 right-0 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-2xl animate-bounce"
+                  style={{ animationDelay: "0.5s", animationDuration: "3s" }}
+                >
+                  <Star className="w-8 h-8 text-yellow-500 fill-yellow-500" />
+                </div>
+
+                <div
+                  className="absolute bottom-20 left-10 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-2xl animate-bounce"
+                  style={{ animationDelay: "1s", animationDuration: "3s" }}
+                >
+                  <Heart className="w-8 h-8 text-red-500 fill-red-500" />
+                </div>
+
+                <div
+                  className="absolute bottom-0 right-10 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-2xl animate-bounce"
+                  style={{ animationDelay: "1.5s", animationDuration: "3s" }}
+                >
+                  <Eye className="w-8 h-8 text-blue-500" />
+                </div>
+
+                {/* Círculo central con icono principal */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-white p-12 rounded-full shadow-2xl">
+                    <ShoppingCart className="w-32 h-32 text-orange-500" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Breadcrumb / Navegación rápida */}
+          <div className="mt-8 pt-8 border-t border-white/20">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-white/80">
+              <span className="flex items-center gap-2">
+                <span className="text-white font-semibold">
+                  Categorías populares:
+                </span>
+              </span>
+              {categories.slice(1, 5).map((cat, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedCategory(cat)}
+                  className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-all border border-white/20 text-white font-medium"
+                >
+                  {cat}
+                </button>
+              ))}
             </div>
           </div>
         </div>
 
+        {/* Onda decorativa en la parte inferior */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+          <svg
+            viewBox="0 0 1440 120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full"
+          >
             <path
               d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
               fill="rgb(249 250 251)"
+              className="opacity-100"
             />
           </svg>
         </div>
@@ -698,7 +795,8 @@ export default function ProductsPage() {
               <div>
                 <h3 className="font-bold text-lg">Selecciona tu Moneda</h3>
                 <p className="text-sm text-white/80">
-                  {lastUpdate && `Actualizado: ${lastUpdate.toLocaleTimeString('es-CO')}`}
+                  {lastUpdate &&
+                    `Actualizado: ${lastUpdate.toLocaleTimeString("es-CO")}`}
                 </p>
               </div>
             </div>
@@ -712,10 +810,18 @@ export default function ProductsPage() {
                 >
                   <span className="text-2xl">{selectedCurrency.flag}</span>
                   <div className="text-left">
-                    <div className="text-sm font-semibold">{selectedCurrency.code}</div>
-                    <div className="text-xs text-gray-500">{selectedCurrency.name}</div>
+                    <div className="text-sm font-semibold">
+                      {selectedCurrency.code}
+                    </div>
+                    <div className="text-xs text-gray-500">
+                      {selectedCurrency.name}
+                    </div>
                   </div>
-                  <ChevronDown className={`w-5 h-5 transition-transform ${showCurrencyMenu ? 'rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`w-5 h-5 transition-transform ${
+                      showCurrencyMenu ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
 
                 {/* Menú desplegable de monedas */}
@@ -729,13 +835,19 @@ export default function ProductsPage() {
                           setShowCurrencyMenu(false);
                         }}
                         className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors ${
-                          selectedCurrency.code === currency.code ? 'bg-orange-50' : ''
+                          selectedCurrency.code === currency.code
+                            ? "bg-orange-50"
+                            : ""
                         }`}
                       >
                         <span className="text-2xl">{currency.flag}</span>
                         <div className="flex-1 text-left">
-                          <div className="font-semibold text-gray-800">{currency.code}</div>
-                          <div className="text-xs text-gray-500">{currency.name}</div>
+                          <div className="font-semibold text-gray-800">
+                            {currency.code}
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            {currency.name}
+                          </div>
                         </div>
                         {selectedCurrency.code === currency.code && (
                           <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
@@ -753,16 +865,20 @@ export default function ProductsPage() {
                 className="bg-white/20 backdrop-blur-sm p-3 rounded-xl hover:bg-white/30 transition-all disabled:opacity-50"
                 title="Actualizar tasas de cambio"
               >
-                <RefreshCw className={`w-5 h-5 ${loadingRates ? 'animate-spin' : ''}`} />
+                <RefreshCw
+                  className={`w-5 h-5 ${loadingRates ? "animate-spin" : ""}`}
+                />
               </button>
             </div>
           </div>
 
           {/* Información de conversión */}
-          {selectedCurrency.code !== 'COP' && (
+          {selectedCurrency.code !== "COP" && (
             <div className="mt-4 p-4 bg-white/10 backdrop-blur-sm rounded-lg">
               <p className="text-sm">
-                <span className="font-semibold">Tasa de cambio:</span> 1 COP = {exchangeRates[selectedCurrency.code]?.toFixed(6)} {selectedCurrency.code}
+                <span className="font-semibold">Tasa de cambio:</span> 1 COP ={" "}
+                {exchangeRates[selectedCurrency.code]?.toFixed(6)}{" "}
+                {selectedCurrency.code}
               </p>
             </div>
           )}
@@ -817,7 +933,9 @@ export default function ProductsPage() {
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar de filtros */}
-          <aside className={`lg:w-72 ${showFilters ? "block" : "hidden lg:block"}`}>
+          <aside
+            className={`lg:w-72 ${showFilters ? "block" : "hidden lg:block"}`}
+          >
             <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-4">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2">
@@ -859,22 +977,28 @@ export default function ProductsPage() {
 
               {/* Rango de precio */}
               <div className="mb-6">
-                <h4 className="font-bold text-gray-700 mb-4">Rango de Precio (COP)</h4>
+                <h4 className="font-bold text-gray-700 mb-4">
+                  Rango de Precio (COP)
+                </h4>
                 <div className="grid grid-cols-2 gap-3 mb-4">
                   <div>
-                    <label className="text-xs text-gray-500 mb-1 block">Mínimo</label>
+                    <label className="text-xs text-gray-500 mb-1 block">
+                      Mínimo
+                    </label>
                     <input
                       type="text"
-                      value={`${priceRange[0].toLocaleString('es-CO')}`}
+                      value={`${priceRange[0].toLocaleString("es-CO")}`}
                       readOnly
                       className="w-full px-3 py-2 text-sm border-2 border-gray-200 rounded-lg bg-gray-50"
                     />
                   </div>
                   <div>
-                    <label className="text-xs text-gray-500 mb-1 block">Máximo</label>
+                    <label className="text-xs text-gray-500 mb-1 block">
+                      Máximo
+                    </label>
                     <input
                       type="text"
-                      value={`${priceRange[1].toLocaleString('es-CO')}`}
+                      value={`${priceRange[1].toLocaleString("es-CO")}`}
                       readOnly
                       className="w-full px-3 py-2 text-sm border-2 border-gray-200 rounded-lg bg-gray-50"
                     />
@@ -897,7 +1021,9 @@ export default function ProductsPage() {
                     max={MAX_PRICE}
                     step="1000"
                     value={priceRange[0]}
-                    onChange={(e) => handleMinPriceChange(parseInt(e.target.value))}
+                    onChange={(e) =>
+                      handleMinPriceChange(parseInt(e.target.value))
+                    }
                     className="absolute top-0 left-0 w-full h-2 appearance-none bg-transparent pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-orange-500 [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:shadow-md hover:[&::-webkit-slider-thumb]:scale-110 [&::-webkit-slider-thumb]:transition-transform"
                   />
 
@@ -907,7 +1033,9 @@ export default function ProductsPage() {
                     max={MAX_PRICE}
                     step="1000"
                     value={priceRange[1]}
-                    onChange={(e) => handleMaxPriceChange(parseInt(e.target.value))}
+                    onChange={(e) =>
+                      handleMaxPriceChange(parseInt(e.target.value))
+                    }
                     className="absolute top-0 left-0 w-full h-2 appearance-none bg-transparent pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-red-500 [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:shadow-md hover:[&::-webkit-slider-thumb]:scale-110 [&::-webkit-slider-thumb]:transition-transform"
                   />
                 </div>
@@ -933,9 +1061,15 @@ export default function ProductsPage() {
           <main className="flex-1 min-w-0">
             <div className="mb-6 flex items-center justify-between">
               <p className="text-gray-600">
-                Mostrando <span className="font-bold text-gray-800">{filteredProducts.length}</span> productos
+                Mostrando{" "}
+                <span className="font-bold text-gray-800">
+                  {filteredProducts.length}
+                </span>{" "}
+                productos
                 {isOdd && filteredProducts.length > 0 && (
-                  <span className="ml-2 text-orange-600 font-semibold">(Modo Carrusel)</span>
+                  <span className="ml-2 text-orange-600 font-semibold">
+                    (Modo Carrusel)
+                  </span>
                 )}
               </p>
             </div>
@@ -947,7 +1081,10 @@ export default function ProductsPage() {
                     <div
                       ref={carouselRef}
                       className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth pb-4 -mx-4 px-4"
-                      style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+                      style={{
+                        scrollbarWidth: "none",
+                        msOverflowStyle: "none",
+                      }}
                     >
                       {filteredProducts.map((product) => (
                         <ProductCard key={product.id} product={product} />
@@ -982,8 +1119,12 @@ export default function ProductsPage() {
             ) : (
               <div className="bg-white rounded-2xl shadow-lg p-16 text-center">
                 <div className="text-6xl mb-4">🔍</div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">No se encontraron productos</h3>
-                <p className="text-gray-600 mb-6">Intenta con otros términos de búsqueda o filtros</p>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                  No se encontraron productos
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Intenta con otros términos de búsqueda o filtros
+                </p>
                 <button
                   onClick={() => {
                     setSearchTerm("");
