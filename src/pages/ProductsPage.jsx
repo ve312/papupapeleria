@@ -1,5 +1,8 @@
 import { useState, useMemo, useRef } from 'react';
+import { useCart } from "../context/CartContext";
 import { Search, SlidersHorizontal, X, Star, ShoppingCart, Heart, Eye, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
+
+
 
 const allProducts = [
   // Útiles Escolares
@@ -10,7 +13,7 @@ const allProducts = [
     price: 45000,
     oldPrice: 60000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80",
+    image: "https://amelipapeleria.uy/wp-content/uploads/2021/01/kit-4-ameli.jpeg",
     stock: 12,
     description: "Kit completo para el regreso a clases"
   },
@@ -20,7 +23,7 @@ const allProducts = [
     category: "Útiles Escolares",
     price: 18500,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&q=80",
+    image: "https://www.papeleriamegapel.com/wp-content/uploads/2022/05/Lapicero-Trilux-032-x-12-Colores-Surtidos-Faber-Castell.jpg",
     stock: 25,
     description: "Set de 12 lapiceros de colores vibrantes"
   },
@@ -30,7 +33,7 @@ const allProducts = [
     category: "Útiles Escolares",
     price: 8900,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=400&q=80",
+    image: "https://tse4.mm.bing.net/th/id/OIP.JjE-1bP4U0SXcHb7wDeN3AHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 30,
     description: "Lápices de grafito HB ideales para escribir y dibujar"
   },
@@ -40,7 +43,7 @@ const allProducts = [
     category: "Útiles Escolares",
     price: 3500,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&q=80",
+    image: "https://tse3.mm.bing.net/th/id/OIP.4acZz7MLgxuc9S7l-raydAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 45,
     description: "Combo perfecto para tus útiles escolares"
   },
@@ -64,7 +67,7 @@ const allProducts = [
     price: 15000,
     oldPrice: 20000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&q=80",
+    image: "https://tse2.mm.bing.net/th/id/OIP.aevo3hsbAu3hrr53CdmUlQHaFL?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 10,
     description: "Cuaderno universitario con espiral, 200 hojas"
   },
@@ -74,7 +77,7 @@ const allProducts = [
     category: "Cuadernos",
     price: 12500,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&q=80",
+    image: "https://tse2.mm.bing.net/th/id/OIP.WMr6fvMXSPUkdOau86puZAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 20,
     description: "Block de notas tamaño A4, 50 hojas"
   },
@@ -84,7 +87,7 @@ const allProducts = [
     category: "Cuadernos",
     price: 28000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&q=80",
+    image: "https://th.bing.com/th/id/OIP.AgR9lEb782H6mDnHPqgpLwHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 8,
     description: "Agenda profesional para el año 2025"
   },
@@ -97,7 +100,7 @@ const allProducts = [
     price: 35960,
     oldPrice: 45000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&q=80",
+    image: "https://tse4.mm.bing.net/th/id/OIP.YtUEz9LZawodlvksBntl1QHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 8,
     description: "Colores profesionales, 24 tonalidades vibrantes"
   },
@@ -117,7 +120,7 @@ const allProducts = [
     category: "Arte y Manualidades",
     price: 22000,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1556910585-6e138566da5f?w=400&q=80",
+    image: "https://tse3.mm.bing.net/th/id/OIP.SRHDC1YsfF6FGz2VGTSMBAHaHI?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 15,
     description: "Set de témperas para proyectos artísticos"
   },
@@ -127,7 +130,7 @@ const allProducts = [
     category: "Arte y Manualidades",
     price: 16500,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1572372230681-7f00a9241ea9?w=400&q=80",
+    image: "https://tse1.mm.bing.net/th/id/OIP.G0Cvp-DxLRdlDHjERy14DwHaHT?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 12,
     description: "Pinceles de diferentes tamaños para pintura"
   },
@@ -170,7 +173,7 @@ const allProducts = [
     category: "Mochilas y Bolsos",
     price: 18000,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1588617507091-9dea7eb6dc95?w=400&q=80",
+    image: "https://tse2.mm.bing.net/th/id/OIP.lgAjHK89eafCp3sKManIUAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 22,
     description: "Cartuchera con tres compartimentos"
   },
@@ -182,7 +185,7 @@ const allProducts = [
     category: "Papelería de Oficina",
     price: 12000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=400&q=80",
+    image: "https://tse2.mm.bing.net/th/id/OIP.xvFHIrt6zc94gReI-oUjIwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 18,
     description: "Carpeta resistente para organizar documentos"
   },
@@ -192,7 +195,7 @@ const allProducts = [
     category: "Papelería de Oficina",
     price: 15500,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80",
+    image: "https://tse1.mm.bing.net/th/id/OIP.ZJznDQoRckCnO99P0DxRwgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 10,
     description: "Grapadora de alta resistencia"
   },
@@ -202,7 +205,7 @@ const allProducts = [
     category: "Papelería de Oficina",
     price: 18000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&q=80",
+    image: "https://th.bing.com/th?id=OIF.BnU3vv%2b9yJLyJ0Pv7N1aPw&rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 12,
     description: "Perforadora metálica profesional"
   },
@@ -212,7 +215,7 @@ const allProducts = [
     category: "Papelería de Oficina",
     price: 5500,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&q=80",
+    image: "https://tse1.mm.bing.net/th/id/OIP.MDXPywlJGq8zUlKEe1CUaAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 35,
     description: "Set completo de clips y chinches de colores"
   },
@@ -224,7 +227,7 @@ const allProducts = [
     category: "Organización",
     price: 32000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&q=80",
+    image: "https://m.media-amazon.com/images/I/813coJGdHaL._AC_.jpg",
     stock: 9,
     description: "Organizador con múltiples compartimentos"
   },
@@ -234,7 +237,7 @@ const allProducts = [
     category: "Organización",
     price: 8000,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1617333003364-f93e6ab569ea?w=400&q=80",
+    image: "https://m.media-amazon.com/images/I/719L+cmT8RL._AC_.jpg",
     stock: 28,
     description: "Separadores plásticos de 5 colores"
   },
@@ -244,7 +247,7 @@ const allProducts = [
     category: "Organización",
     price: 14500,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=400&q=80",
+    image: "https://th.bing.com/th/id/R.7ff469198f084610990574d2d53618e2?rik=ROrHJ6EJAb%2fNMQ&riu=http%3a%2f%2fextranet.plasticospardo.com%2fimagenes_prod%2ffamilia2450_familia.jpg&ehk=s3klNmW1AZrgbXGvcrfdMOHjiYQ3ISfJa60C5ZUN5pc%3d&risl=&pid=ImgRaw&r=0",
     stock: 16,
     description: "Archivador resistente con tapa"
   },
@@ -256,7 +259,7 @@ const allProducts = [
     category: "Accesorios",
     price: 14000,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1616401776142-2cc2e2c6ef63?w=400&q=80",
+    image: "https://distribuidoraeleden.com/wp-content/uploads/LIB0184.jpg",
     stock: 12,
     description: "Tijeras con punta redondeada, ideales para niños"
   },
@@ -266,7 +269,7 @@ const allProducts = [
     category: "Accesorios",
     price: 7200,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1615751072497-5f5169febe17?w=400&q=80",
+    image: "https://tse3.mm.bing.net/th/id/OIP.IzQ787LV16FDXJHOsVvA9gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 20,
     description: "Pegamento blanco de secado rápido"
   },
@@ -276,7 +279,7 @@ const allProducts = [
     category: "Accesorios",
     price: 4000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1561414927-6d86591d0c4f?w=400&q=80",
+    image: "https://www.officedepot.com.mx/medias/43946.gif-1200ftw?context=bWFzdGVyfHJvb3R8ODI0NzJ8aW1hZ2UvanBlZ3xhR0ZrTDJoaFlTODVORGMyTlRReE9EQTROamN3TG1wd1p3fGNjMzZkYmY0MDYzZjNjZWE3NDg1ZGMyNTBlMmUwOTk4ODcyZTczZGZlZDJlMTU0MTFlNDdjZWM4OWEyYzdhNmE",
     stock: 25,
     description: "Regla transparente con medidas precisas"
   },
@@ -286,7 +289,7 @@ const allProducts = [
     category: "Accesorios",
     price: 6500,
     rating: 4, 
-    image: "https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?w=400&q=80",
+    image: "https://tse1.mm.bing.net/th/id/OIP.VzoJQLJiQaqx72dDGQQvugHaIf?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 30,
     description: "Pack de 2 cintas adhesivas transparentes"
   },
@@ -309,7 +312,7 @@ const allProducts = [
     price: 22000,
     oldPrice: 30000,
     rating: 5, 
-    image: "https://images.unsplash.com/photo-1624823183493-ed5832f48f18?w=400&q=80",
+    image: "https://tse2.mm.bing.net/th/id/OIP.nEOGwpmQpN92bo7-WFFiIgHaFT?rs=1&pid=ImgDetMain&o=7&rm=3",
     stock: 15,
     description: "Memoria USB de alta velocidad 3.0"
   },
@@ -341,6 +344,7 @@ const MIN_PRICE = 0;
 const MAX_PRICE = 150000;
 
 export default function ProductsPage() {
+  const { addItem } = useCart();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Todas las Categorías');
   const [priceRange, setPriceRange] = useState([MIN_PRICE, MAX_PRICE]);
@@ -534,16 +538,18 @@ export default function ProductsPage() {
 
         {/* Botón */}
         <button 
-          disabled={product.stock === 0}
-          className={`w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 group/btn mt-auto ${
-            product.stock === 0 
-              ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-              : 'bg-gradient-to-r from-orange-500 to-red-500 text-white hover:shadow-xl hover:scale-105'
-          }`}
-        >
-          <ShoppingCart className="w-5 h-5 group-hover/btn:animate-bounce" />
-          {product.stock === 0 ? 'Agotado' : 'Agregar al Carrito'}
-        </button>
+  onClick={() => addItem(product)}
+  disabled={product.stock === 0}
+  className={`w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 group/btn mt-auto ${
+    product.stock === 0 
+      ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+      : 'bg-gradient-to-r from-orange-500 to-red-500 text-white hover:shadow-xl hover:scale-105'
+  }`}
+>
+  <ShoppingCart className="w-5 h-5 group-hover/btn:animate-bounce" />
+  {product.stock === 0 ? 'Agotado' : 'Agregar al Carrito'}
+</button>
+
       </div>
     </article>
   );

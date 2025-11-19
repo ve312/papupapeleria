@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useCart } from "../context/CartContext";
 import { Percent, Timer, SlidersHorizontal, Star, ShoppingCart, Heart, Eye, X, ChevronDown } from 'lucide-react';
 
 const allOffers = [
   { id: 5,  name: "Cuaderno 100 Hojas", category: "Cuadernos", price: 10000, oldPrice: 15000, rating: 5, stock: 15, image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&q=80" },
-  { id: 6,  name: "Cuaderno Universitario", category: "Cuadernos", price: 15000, oldPrice: 20000, rating: 5, stock: 10, image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&q=80" },
-  { id: 9,  name: "Set Colores x24", category: "Arte y Manualidades", price: 35960, oldPrice: 45000, rating: 5, stock: 8, image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&q=80" },
+  { id: 6,  name: "Cuaderno Universitario", category: "Cuadernos", price: 15000, oldPrice: 20000, rating: 5, stock: 10, image: "https://tse2.mm.bing.net/th/id/OIP.aevo3hsbAu3hrr53CdmUlQHaFL?rs=1&pid=ImgDetMain&o=7&rm=3" },
+  { id: 9,  name: "Set Colores x24", category: "Arte y Manualidades", price: 35960, oldPrice: 45000, rating: 5, stock: 8, image: "https://tse4.mm.bing.net/th/id/OIP.YtUEz9LZawodlvksBntl1QHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" },
   { id: 13, name: "Mochila Escolar Grande", category: "Mochilas y Bolsos", price: 100000, oldPrice: 130000, rating: 4, stock: 5, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80" },
-  { id: 29, name: "USB 32GB", category: "Tecnología", price: 22000, oldPrice: 30000, rating: 5, stock: 15, image: "https://images.unsplash.com/photo-1624823183493-ed5832f48f18?w=400&q=80" },
+  { id: 29, name: "USB 32GB", category: "Tecnología", price: 22000, oldPrice: 30000, rating: 5, stock: 15, image: "https://tse2.mm.bing.net/th/id/OIP.nEOGwpmQpN92bo7-WFFiIgHaFT?rs=1&pid=ImgDetMain&o=7&rm=3" },
 ];
 
 const categories = ["Todas", ...Array.from(new Set(allOffers.map(p => p.category)))];
@@ -22,6 +23,7 @@ function formatPrice(n) {
 
 export default function OffersPage() {
   // Estado de filtros y UI
+  const { addItem } = useCart();
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('Todas');
   const [minDiscount, setMinDiscount] = useState(0); // % mínimo (cambiado de 10 a 0)
@@ -672,16 +674,18 @@ export default function OffersPage() {
                         </div>
 
                         <button
-                          disabled={p.stock === 0}
-                          className={`w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 ${
-                            p.stock === 0
-                              ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                              : "bg-gradient-to-r from-orange-500 to-red-500 text-white hover:shadow-xl hover:scale-105"
-                          }`}
-                        >
-                          <ShoppingCart className="w-5 h-5" />
-                          {p.stock === 0 ? "Agotado" : "Agregar al Carrito"}
-                        </button>
+  onClick={() => addItem(p)}
+  disabled={p.stock === 0}
+  className={`w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 ${
+    p.stock === 0
+      ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+      : "bg-gradient-to-r from-orange-500 to-red-500 text-white hover:shadow-xl hover:scale-105"
+  }`}
+>
+  <ShoppingCart className="w-5 h-5" />
+  {p.stock === 0 ? "Agotado" : "Agregar al Carrito"}
+</button>
+
                       </div>
                     </article>
                   );

@@ -64,7 +64,7 @@ export default function CartDrawer({ open, onClose, goToCart }) {
                         value={item.qty}
                         onChange={(e) => {
                           const v = parseInt(e.target.value || '1', 10);
-                          if (Number.isFinite(v)) item.setQty?.(item.id, v);
+                          if (Number.isFinite(v)) setQty(item.id, v);
                         }}
                         readOnly
                       />

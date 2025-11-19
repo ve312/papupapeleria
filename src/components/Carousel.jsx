@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { slides } from '../data/productsData';
 
-export default function Carousel() {
+
+
+export default function Carousel({ setCurrentPage }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -34,9 +36,13 @@ export default function Carousel() {
             <div className="text-center z-10 px-4 max-w-4xl">
               <h2 className="text-6xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-2xl animate-pulse">{slide.title}</h2>
               <p className="text-2xl md:text-3xl text-white mb-8 drop-shadow-lg font-semibold">{slide.subtitle}</p>
-              <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-10 py-4 rounded-full font-bold text-xl hover:from-yellow-500 hover:to-orange-600 hover:scale-110 transition-all shadow-2xl border-4 border-white">
-                ¡Comprar Ahora!
-              </button>
+              <button 
+  onClick={() => setCurrentPage("products")}
+  className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-10 py-4 rounded-full font-bold text-xl hover:from-yellow-500 hover:to-orange-600 hover:scale-110 transition-all shadow-2xl border-4 border-white"
+>
+  ¡Comprar Ahora!
+</button>
+
             </div>
           </div>
         </div>

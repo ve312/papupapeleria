@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useCart } from "../context/CartContext";
 import { ChevronLeft, ChevronRight, Star, ShoppingCart, Heart, Eye, Pause, Play } from "lucide-react";
 
 const categories = [
@@ -277,6 +278,7 @@ const products = [
 ];
 
 export default function Categories() {
+  const { addItem } = useCart();
   const [active, setActive] = useState(0);
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const [favorites, setFavorites] = useState([]);
@@ -532,10 +534,23 @@ export default function Categories() {
                 </div>
 
                 {/* Botón */}
-                <button className={`w-full bg-gradient-to-r ${categories[active]?.gradient} text-white py-2.5 rounded-xl font-bold text-sm hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group/btn`}>
-                  <ShoppingCart className="w-4 h-4 group-hover/btn:animate-bounce" />
-                  Agregar
-                </button>
+                <button 
+  onClick={() =>
+    addItem({
+      id: product.name, // si no tienes id, uso el nombre como id único
+      name: product.name,
+      category: product.category,
+      image: product.image,
+      qty: 1,
+      price: Number(product.price.replace(/\D/g, "")) // limpia "$45.000"
+    })
+  }
+  disabled={product.stock === 0}
+  className={`w-full bg-gradient-to-r ${categories[active]?.gradient} text-white py-2.5 rounded-xl font-bold text-sm hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2`}
+>
+  <ShoppingCart className="w-4 h-4" />
+  {product.stock === 0 ? "Agotado" : "Agregar"}
+</button>
               </div>
             </article>
           ))}

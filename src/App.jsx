@@ -25,7 +25,7 @@ export default function App() {
       default:
         return (
           <>
-            <Carousel />
+            <Carousel setCurrentPage={setCurrentPage} />
             <div className="max-w-7xl mx-auto px-4 py-8">
               <Features />
               <Categories />
