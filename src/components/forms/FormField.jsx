@@ -7,8 +7,10 @@ function FormField({
   placeholder = '',
 }) {
   return (
-    <div className="form-group">
-      <label htmlFor={name}>{label}</label>
+    <div>
+      <label htmlFor={name} className="block mb-2 font-semibold text-gray-700">
+        {label}
+      </label>
       <input
         id={name}
         name={name}
@@ -16,7 +18,7 @@ function FormField({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="input"
+        className="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
       />
     </div>
   );
